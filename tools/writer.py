@@ -70,7 +70,7 @@ def generate_text(style_key: str, user_input: str, temperature: float, word_coun
 
 
 def render():
-    st.title("AI 智能写作")
+    st.title("写作助手")
     st.caption("选择题材，调节参数，AI 为你撰写高质量内容")
 
     # ---- 会话状态 ----
