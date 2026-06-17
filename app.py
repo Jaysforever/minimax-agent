@@ -13,7 +13,7 @@ st.set_page_config(page_title="Jay-AI-Tools", page_icon="🤖", layout="wide")
 # 每个工具：{id, title, icon, module}
 TOOLS = [
     {"id": "research", "title": "科研助手", "icon": "🔬", "module": "tools.research_assistant"},
-    {"id": "writer", "title": "写作助手", "icon": "✍️", "module": "tools.writer"},
+    {"id": "writer", "title": "创作助手", "icon": "✍️", "module": "tools.writer"},
     {"id": "math_solver", "title": "数学解题", "icon": "🧮", "module": "tools.math_solver"},
     {"id": "image_generator", "title": "AI生图", "icon": "🎨", "module": "tools.image_generator"},
     {"id": "music_generator", "title": "音乐创作", "icon": "🎵", "module": "tools.music_generator"},
@@ -25,7 +25,7 @@ def render_sidebar() -> str:
     """渲染侧边栏，返回当前选中的工具 id。"""
     with st.sidebar:
         st.title("Jay-AI-Tools")
-        st.caption("多功能 AI 工作台")
+        st.caption("多功能 AI agent")
 
         st.divider()
 

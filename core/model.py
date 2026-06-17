@@ -53,8 +53,6 @@ def chat(messages: list[dict], system_prompt: str = "", model: str = "MiniMax-M3
     if system_prompt:
         payload["system_prompt"] = system_prompt
 
-    # MiniMax M2 要求放在 prompt 字段而非 messages 数组
-    # 如果传 system_prompt 则不放在 messages 里
     payload.update(kwargs)
 
     resp = requests.post(ENDPOINT_V2, headers=headers, json=payload, stream=stream, timeout=120)

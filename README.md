@@ -65,10 +65,12 @@ Windows 用户也可直接双击 `start.bat` 启动。
 
 ### 🎮 游戏创作
 
-- 6 个快捷模板：贪吃蛇 / 俄罗斯方块 / 打砖块 / 飞镖 / 赛车 / 翻牌
-- 对话式创作：描述需求 → AI 生成完整 HTML+JS 游戏 → 右侧实时运行
-- 实时修改："把蛇改成蓝色" → 立即更新
-- 下载为独立 HTML 文件
+- **6 个快捷模板**：贪吃蛇 / 俄罗斯方块 / 打砖块 / 飞镖 / 赛车 / 翻牌
+- **实时流式生成**：`st.write_stream()` 逐字推送代码，看着代码被「写」出来
+- **对话式创作**：描述需求 → AI 生成完整 HTML+JS 游戏 → 弹窗全屏预览运行
+- **多轮修改**：直接说「把蛇改成蓝色」 → 立即生成新版本
+- **全屏预览弹窗**：CSS 强制 95vw × 90vh，代码块全宽显示
+- **下载独立 HTML**：保存到本地直接打开玩
 
 ## 🏗️ 项目结构
 
@@ -83,7 +85,7 @@ agent/
 │   ├── math_solver.py          # 数学解题
 │   ├── image_generator.py      # AI 视觉创作
 │   ├── music_generator.py      # 音乐创作
-│   ├── game_creator.py         # 游戏创作
+│   ├── game_creator.py         # 游戏创作（实时流式 + 全屏预览）
 │   └── audio_processor.py      # Whisper STT
 ├── prompts/                    # 提示词管理
 │   ├── research.py / writer.py / math.py / image.py / music.py / game.py
@@ -124,3 +126,4 @@ MINIMAX_API_KEY=你的API密钥
 - 模块隔离：新增功能在 `tools/` 下新建文件，在 `app.py` 注册
 - 提示词管理：`prompts/` 下的 `PROMPTS_DICT` 统一管理，禁止硬编码
 - 状态管理：使用 `st.session_state` 保持多轮对话上下文
+- **流式输出**：长内容生成统一用 `st.write_stream()`，避免 spinner 卡顿错觉
